@@ -360,11 +360,134 @@
     font-size: 12px;
     color: var(--text-sub);
   }
+
+  /* ---------- 作品紹介（イントロ） ---------- */
+
+  .intro {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 36px 20px 8px;
+    text-align: center;
+  }
+
+  .intro-badge {
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--blue-soft);
+    color: var(--today-accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .intro-title {
+    margin: 0 0 14px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  .intro-lead {
+    margin: 0 0 26px;
+    font-size: 14.5px;
+    color: var(--text-sub);
+    padding: 0 4px;
+  }
+
+  .intro-block {
+    text-align: left;
+    background: var(--white);
+    border: 1px solid var(--blue-line);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  .intro-block h2 {
+    margin: 0 0 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--navy-soft);
+  }
+
+  .intro-block p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-main);
+  }
+
+  .intro-cta {
+    margin-top: 8px;
+  }
+
+  #appSection {
+    scroll-margin-top: 8px;
+  }
+
+  /* ---------- 作品情報（アプリ下部） ---------- */
+
+  .info {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 8px 20px 54px;
+  }
+
+  .info-block {
+    margin-top: 30px;
+  }
+
+  .info-block h2 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--blue-line);
+  }
+
+  .info-block p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-sub);
+  }
+
+  .info-block ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13.5px;
+    color: var(--text-sub);
+  }
+
+  .info-block li {
+    margin-bottom: 6px;
+  }
 </style>
 </head>
 <body>
 
-  <div class="app">
+  <section class="intro" aria-label="作品紹介">
+    <p class="intro-badge">制作 #001</p>
+    <h1 class="intro-title">今日の仕事整理ツール</h1>
+    <p class="intro-lead">
+      頭の中にあるタスクを書き出すだけで、「今日やる」「5分でできそう」「後回しでもOK」の3つに整理できる、シンプルなWebアプリです。
+    </p>
+
+    <div class="intro-block">
+      <h2>制作した理由</h2>
+      <p>仕事や副業をしていると、やることが色々あるはずなのに、頭の中がごちゃごちゃして何から手をつければいいか分からない瞬間があります。その状態を、紙に書き出すような感覚でパッと整理できたら少しラクになるのではないか、という思いから制作しました。</p>
+    </div>
+
+    <div class="intro-block">
+      <h2>コンセプト</h2>
+      <p>今日の仕事を、少し整理。<br>手作業を、少しラクに。</p>
+    </div>
+
+    <button id="scrollToAppBtn" class="btn btn-primary intro-cta" type="button">アプリを使ってみる</button>
+  </section>
+
+  <div class="app" id="appSection">
 
     <header class="hero">
       <p class="hero-eyebrow">今日の仕事整理ツール</p>
@@ -431,6 +554,35 @@
 
   </div>
 
+  <section class="info" aria-label="作品情報">
+    <div class="info-block">
+      <h2>主な機能</h2>
+      <ul>
+        <li>タスクをまとめて入力できる入力欄</li>
+        <li>「整理する」で3カテゴリに自動振り分け（今日やる／5分でできそう／後回しでもOK）</li>
+        <li>完了チェック（取り消し線＋薄い表示）</li>
+        <li>「今日の内容をリセット」（確認してから削除）</li>
+        <li>「サンプルを試す」ですぐに動作を確認</li>
+        <li>入力内容・整理結果・チェック状態をブラウザ内に保存</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h2>使用技術</h2>
+      <p>HTML / CSS / JavaScriptのみで構成し、フレームワークは使用していません。外部AIサービスやAPIキーも使用せず、判定はすべてブラウザ内のシンプルなルールで行っています。データはブラウザの localStorage にのみ保存され、外部サーバーへの送信は一切ありません。</p>
+    </div>
+
+    <div class="info-block">
+      <h2>今後改善したいこと</h2>
+      <ul>
+        <li>現在はキーワードと文字数によるルールベースの分類のため、将来的にはAIを活用した文脈判定にも発展させたい</li>
+        <li>カテゴリやキーワードをカスタマイズできる機能</li>
+        <li>完了したタスクを日ごとに振り返れる履歴表示</li>
+        <li>ダークモードへの対応</li>
+      </ul>
+    </div>
+  </section>
+
 <script>
 (function () {
   "use strict";
@@ -490,6 +642,7 @@
   var listToday = document.getElementById("listToday");
   var listQuick = document.getElementById("listQuick");
   var listLater = document.getElementById("listLater");
+  var scrollToAppBtn = document.getElementById("scrollToAppBtn");
 
   // ---------- 入力テキストをタスク単位に分割 ----------
   function splitTasks(rawText) {
@@ -732,6 +885,13 @@
     organizeBtn.addEventListener("click", organize);
     sampleBtn.addEventListener("click", handleSample);
     resetBtn.addEventListener("click", handleReset);
+
+    if (scrollToAppBtn) {
+      scrollToAppBtn.addEventListener("click", function () {
+        var target = document.getElementById("appSection");
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
 
     var saveTimer = null;
     taskInput.addEventListener("input", function () {
